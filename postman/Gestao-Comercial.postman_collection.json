@@ -1,0 +1,38 @@
+{
+  "info": {
+    "name": "API Gestão Comercial",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [{ "key": "baseUrl", "value": "http://localhost:8080/api" }],
+  "item": [
+    {
+      "name": "Clientes",
+      "item": [
+        { "name": "Listar", "request": { "method": "GET", "url": "{{baseUrl}}/clientes" } },
+        { "name": "Criar", "request": { "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"nome\": \"Maria da Silva\",\n  \"documento\": \"12345678901\",\n  \"email\": \"maria@email.com\",\n  \"telefone\": \"(46) 99999-9999\",\n  \"endereco\": \"Pato Branco - PR\",\n  \"ativo\": true\n}" }, "url": "{{baseUrl}}/clientes" } }
+      ]
+    },
+    {
+      "name": "Produtos",
+      "item": [
+        { "name": "Listar", "request": { "method": "GET", "url": "{{baseUrl}}/produtos" } },
+        { "name": "Criar", "request": { "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"nome\": \"Monitor\",\n  \"descricao\": \"Monitor Full HD\",\n  \"preco\": 899.90,\n  \"estoque\": 10,\n  \"ativo\": true\n}" }, "url": "{{baseUrl}}/produtos" } }
+      ]
+    },
+    {
+      "name": "Serviços",
+      "item": [
+        { "name": "Listar", "request": { "method": "GET", "url": "{{baseUrl}}/servicos" } },
+        { "name": "Criar", "request": { "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"nome\": \"Instalação\",\n  \"descricao\": \"Instalação de software\",\n  \"preco\": 120.00,\n  \"ativo\": true\n}" }, "url": "{{baseUrl}}/servicos" } }
+      ]
+    },
+    {
+      "name": "Vendas",
+      "item": [
+        { "name": "Listar", "request": { "method": "GET", "url": "{{baseUrl}}/vendas" } },
+        { "name": "Criar", "request": { "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"clienteId\": 1,\n  \"itens\": [\n    { \"tipo\": \"PRODUTO\", \"referenciaId\": 1, \"quantidade\": 2 },\n    { \"tipo\": \"SERVICO\", \"referenciaId\": 1, \"quantidade\": 1 }\n  ]\n}" }, "url": "{{baseUrl}}/vendas" } },
+        { "name": "Cancelar", "request": { "method": "PATCH", "url": "{{baseUrl}}/vendas/1/cancelamento" } }
+      ]
+    }
+  ]
+}
